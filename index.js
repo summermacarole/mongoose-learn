@@ -1,9 +1,9 @@
 const Koa = require("koa");
 const app = new Koa();
-const initDatabase = require("./model/index");
-const initRouter = require("./router");
+const { port } = require("./config");
+const { initRouter, initDatabase } = require("./init");
 initDatabase();
 initRouter(app);
-app.listen(3000, function() {
+app.listen(port, function() {
   console.log("ok");
 });
